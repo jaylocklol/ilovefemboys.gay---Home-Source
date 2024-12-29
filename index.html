@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love Femboys</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+            overflow: hidden;
+            background: repeating-linear-gradient(45deg, var(--color1), var(--color1) 50px, #ffffff 50px, #ffffff 100px);
+        }
+
+        .title {
+            font-size: 5rem;
+            color: white;
+            text-shadow: 2px 2px 0px black, -2px 2px 0px black, 2px -2px 0px black, -2px -2px 0px black;
+            animation: sway 3s infinite ease-in-out;
+        }
+
+        @keyframes sway {
+            0%, 100% {
+                transform: rotate(-2deg);
+            }
+            50% {
+                transform: rotate(2deg);
+            }
+        }
+
+        @keyframes rainbow {
+            0% { --color1: hsl(0, 70%, 85%); }
+            20% { --color1: hsl(60, 70%, 85%); }
+            40% { --color1: hsl(120, 70%, 85%); }
+            60% { --color1: hsl(180, 70%, 85%); }
+            80% { --color1: hsl(240, 70%, 85%); }
+            100% { --color1: hsl(300, 70%, 85%); }
+        }
+
+        .rainbow {
+            animation: rainbow 3s infinite linear;
+        }
+    </style>
+    <script>
+        // Function to generate a random pastel color
+        function getRandomPastel() {
+            const hue = Math.floor(Math.random() * 360);
+            return `hsl(${hue}, 70%, 85%)`;
+        }
+
+        // Set random pastel color as CSS variable for the first stripe
+        document.documentElement.style.setProperty('--color1', getRandomPastel());
+
+        // Listen for the word "gay" typed by the user
+        let inputSequence = '';
+        document.addEventListener('keydown', (event) => {
+            inputSequence += event.key.toLowerCase();
+            if (inputSequence.includes('gay')) {
+                document.body.classList.add('rainbow');
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1 class="title">ilovefemboys.gay</h1>
+</body>
+</html>
