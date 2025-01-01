@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmarklet Instructions</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+            overflow: hidden;
+            background: repeating-linear-gradient(45deg, var(--color1), var(--color1) 50px, #ffffff 50px, #ffffff 100px);
+            text-align: center;
+        }
+
+        .title {
+            font-size: 4rem;
+            color: white;
+            text-shadow: 2px 2px 0px black, -2px 2px 0px black, 2px -2px 0px black, -2px -2px 0px black;
+            animation: sway 3s infinite ease-in-out;
+        }
+
+        @keyframes sway {
+            0%, 100% {
+                transform: rotate(-2deg);
+            }
+            50% {
+                transform: rotate(2deg);
+            }
+        }
+
+        @keyframes rainbow {
+            0% { --color1: hsl(0, 70%, 85%); }
+            20% { --color1: hsl(60, 70%, 85%); }
+            40% { --color1: hsl(120, 70%, 85%); }
+            60% { --color1: hsl(180, 70%, 85%); }
+            80% { --color1: hsl(240, 70%, 85%); }
+            100% { --color1: hsl(300, 70%, 85%); }
+        }
+
+        .rainbow {
+            animation: rainbow 3s infinite linear;
+        }
+
+        .instructions {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .instructions h2 {
+            color: #333;
+        }
+
+        .bookmarklet {
+            display: inline-block;
+            background-color: #f7a9b7;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .bookmarklet:hover {
+            background-color: #f57c87;
+        }
+
+        .code {
+            font-family: monospace;
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+    </style>
+    <script>
+        // Function to generate a random pastel color
+        function getRandomPastel() {
+            const hue = Math.floor(Math.random() * 360);
+            return `hsl(${hue}, 70%, 85%)`;
+        }
+
+        // Set random pastel color as CSS variable for the first stripe
+        document.documentElement.style.setProperty('--color1', getRandomPastel());
+
+        // Listen for the word "gay" typed by the user
+        let inputSequence = '';
+        document.addEventListener('keydown', (event) => {
+            inputSequence += event.key.toLowerCase();
+            if (inputSequence.includes('gay')) {
+                document.body.classList.add('rainbow');
+            }
+        });
+    </script>
+</head>
+<body>
+
+    <div class="instructions">
+        <h2>JKLM Wordbomb Bookmarklet - Long Words Only</h2>
+        <p>Follow these steps to add the bookmarklet to your browser's bookmark bar:</p>
+        <ol>
+            <li>Drag the link below to your bookmark bar:</li>
+            <li>
+                <a class="bookmarklet" href="javascript:(function()%7B%2F%2F%20Define%20the%20URL%20to%20fetch%20the%20word%20list%20fromconst%20url%20%3D%20'https%3A%2F%2Filovefemboys.gay%2Filtk8-2qziz.txt'%3B%2F%2F%20Function%20to%20create%20the%20textbox%20for%20matching%20wordsfunction%20createTextbox(width%20%3D%20'250px')%20%7B%2F%2F%20Create%20a%20div%20to%20hold%20the%20word%20listconst%20textboxDiv%20%3D%20document.createElement('div')%3BtextboxDiv.style.position%20%3D%20'fixed'%3BtextboxDiv.style.top%20%3D%20'20px'%3BtextboxDiv.style.left%20%3D%20'20px'%3BtextboxDiv.style.padding%20%3D%20'10px'%3BtextboxDiv.style.border%20%3D%20'2px%20solid%20%23000'%3BtextboxDiv.style.backgroundColor%20%3D%20'%23fff'%3BtextboxDiv.style.maxHeight%20%3D%20'200px'%3BtextboxDiv.style.overflowY%20%3D%20'auto'%3BtextboxDiv.style.width%20%3D%20width%3BtextboxDiv.style.zIndex%20%3D%20'99992'%3BtextboxDiv.style.boxShadow%20%3D%20'0px%204px%2010px%20rgba(0%2C%200%2C%200%2C%200.2)'%3Bconst%20title%20%3D%20document.createElement('h3')%3Btitle.textContent%20%3D%20'Matching%20Words'%3Btitle.style.marginTop%20%3D%20'0'%3BtextboxDiv.appendChild(title)%3Bconst%20wordsContainer%20%3D%20document.createElement('ul')%3BtextboxDiv.appendChild(wordsContainer)%3Bdocument.body.appendChild(textboxDiv)%3Breturn%20wordsContainer%3B%7D%2F%2F%20Function%20to%20remove%20the%20existing%20textbox%20if%20it%20existsfunction%20removeTextbox()%20%7Bconst%20existingTextbox%20%3D%20document.querySelector('div%5Bstyle*%3D%22position%3A%20fixed%22%5D')%3Bif%20(existingTextbox)%20%7BexistingTextbox.remove()%3B%7D%7D%2F%2F%20Function%20to%20fetch%20and%20filter%20the%20word%20list%20based%20on%20the%20syllablefunction%20updateWords(syllable)%20%7B%2F%2F%20Fetch%20the%20word%20listfetch(url).then(response%20%3D%3E%20response.text()).then(data%20%3D%3E%20%7B%2F%2F%20Split%20the%20word%20list%20into%20an%20array%20of%20wordsconst%20wordList%20%3D%20data.split('%5Cn').map(word%20%3D%3E%20word.trim().toUpperCase())%3B%2F%2F%20Filter%20the%20words%20that%20contain%20the%20syllableconst%20matchingWords%20%3D%20wordList.filter(word%20%3D%3E%20word.includes(syllable))%3B%2F%2F%20Remove%20the%20previous%20textboxes%20(if%20any)removeTextbox()%3B%2F%2F%20Create%20the%20new%20textbox%20for%20matching%20wordsconst%20wordsContainer%20%3D%20createTextbox()%3B%2F%2F%20Display%20the%20first%2010%20matching%20words%20(or%20fewer%20if%20less%20than%2010%20matches)matchingWords.slice(0%2C%2010).forEach(word%20%3D%3E%20%7Bconst%20listItem%20%3D%20document.createElement('li')%3BlistItem.textContent%20%3D%20word%3BwordsContainer.appendChild(listItem)%3B%7D)%3B%2F%2F%20Get%20the%20remaining%20words%20(after%20the%2010)%3B%2F%2F%20Sort%20remaining%20words%20by%20length%20(longest%20to%20shortest)const%20remainingWords%20%3D%20matchingWords.slice(10)%3B%2F%2F%20Create%20second%20textbox%20for%20longest%20words%20%3D%20createTextbox('350px')%3B%20%2F%2F%20Display%20longest%205%20words%20list%3B%20%7D">
+                    Drag me to your bookmarks!
+                </a>
+            </li>
+            <li>Click the bookmarklet to use it on any page that supports it!</li>
+        </ol>
+        <div class="code">
+            <p><strong>Bookmarklet Code:</strong></p>
+            <code>
+                javascript:(function()%7B%2F%2F%20Define%20the%20URL%20to%20fetch%20the%20word%20list%20fromconst%20url%20%3D%20'https%3A%2F%2Filovefemboys.gay%2Filtk8-2qziz.txt'%3B%2F%2F%20Function%20to%20create%20the%20textbox%20for%20matching%20words...
+            </code>
+        </div>
+    </div>
+</body>
+</html>
