@@ -70,9 +70,6 @@ document.getElementById("copyButton").addEventListener("click", async () => {
     const originalCode = await fetchSetupCode();
     const modifiedCode = modifyCode(selectedProfile, originalCode);
     
-    // Show the modified code in the <pre> element
-    document.getElementById("generatedCode").textContent = modifiedCode;
-
     // Copy to clipboard logic
     const textArea = document.createElement("textarea");
     textArea.value = modifiedCode;
