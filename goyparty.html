@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoyParty</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+            background: repeating-linear-gradient(45deg, #ffd0e2, #ffd0e2 50px, #ffffff 50px, #ffffff 100px); /* Solid striped background */
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: white;
+            text-shadow: 2px 2px 0px black, -2px 2px 0px black, 2px -2px 0px black, -2px -2px 0px black;
+            animation: sway 3s infinite ease-in-out;
+            margin-bottom: 30px;
+        }
+
+        @keyframes sway {
+            0%, 100% {
+                transform: rotate(-2deg);
+            }
+            50% {
+                transform: rotate(2deg);
+            }
+        }
+
+        select, button {
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+            padding: 12px;
+            margin: 15px;
+            border-radius: 8px;
+            border: 2px solid #fff;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.3);
+            color: #fff;
+        }
+
+        select {
+            width: 220px;
+            background-color: #000;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        select:hover {
+            background-color: #333;
+            cursor: pointer;
+        }
+
+        button {
+            background-color: #ffd0e2;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff2566;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GoyParty</h1>
+        
+        <!-- Dropdown Menu for Selecting Player Profile -->
+        <select id="playerSelect">
+            <option value="sweatyPlayer">Sweaty Player</option>
+            <option value="decentPlayer">Decent Player</option>
+            <option value="femboyHacker">Femboy Hacker</option>
+            <option value="autoDubs">AutoDubs</option>
+        </select>
+
+        <!-- Button to Copy Code to Clipboard -->
+        <button id="copyButton">Copy Code</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
